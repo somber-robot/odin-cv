@@ -26,7 +26,10 @@ function Data({
         </>
       ) : (
         <p className="data">
-          {title} <p>{value || <i style={{ opacity: 0.4 }}>NIL</i>}</p>
+          {title}{" "}
+          <p className="value">
+            {value || <i style={{ opacity: 0.4 }}>NIL</i>}
+          </p>
         </p>
       )}
     </div>
@@ -35,13 +38,14 @@ function Data({
 
 export default function App() {
   const [active, setActive] = useState(true);
+  const [key, setKey] = useState(0);
 
   return (
     <div className="container">
       <h1 className="title">
         Resu<b>make</b>
       </h1>
-      <div className="sections">
+      <div className="sections" key={key}>
         <fieldset className="section">
           <legend className="section-title">General Information</legend>
           <Data
@@ -123,6 +127,15 @@ export default function App() {
           }}
         >
           {active ? "Submit" : "Edit"}
+        </button>
+        <button
+          className="reset"
+          disabled={!active}
+          onClick={() => {
+            setKey(key + 1);
+          }}
+        >
+          Reset
         </button>
       </div>
     </div>

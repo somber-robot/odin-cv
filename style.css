@@ -60,6 +60,10 @@ p {
   font-size: 0.8rem;
 }
 
+p.value {
+  color: darkgoldenrod;
+}
+
 .sections {
   display: flex;
   flex-direction: column;
@@ -100,7 +104,9 @@ input:focus {
 }
 
 .buttons {
-  text-align: center;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0.2rem;
 }
 
 button {
@@ -113,8 +119,12 @@ button {
   box-shadow: rgba(0, 0, 0, 0.5) 0px 0.5px 10px;
 }
 
-button:hover {
+button:hover:enabled {
   cursor: pointer;
   transform: scale(1.05);
   background-color: rgb(90, 30, 8);
+}
+
+button:disabled {
+  opacity: 40%;
 }
